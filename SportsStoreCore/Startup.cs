@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-
+using SportsStoreCore.Models;
 namespace SportsStoreCore
 {
     public class Startup
@@ -15,6 +15,7 @@ namespace SportsStoreCore
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IProductRepository,FakeRepository>();
             services.AddMvc();
         }
 
@@ -30,8 +31,10 @@ namespace SportsStoreCore
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseMvc(routes => {
+                routes.MapRoute(
+                name: "default",
+                template: "{controller=Product}/{action=List}/{id?}");
             });
-
 
             //app.Run(async (context) =>
             //{
