@@ -9,7 +9,7 @@ namespace SportsStoreCore.Models
     {
         private List<CartLine> lineCollection = new List<CartLine>();
         
-        public void AddItem(Product product, int quantity)
+        public virtual void AddItem(Product product, int quantity)
         {
             CartLine line = lineCollection
                 .Where(p => p.Product.ProductID == product.ProductID)
