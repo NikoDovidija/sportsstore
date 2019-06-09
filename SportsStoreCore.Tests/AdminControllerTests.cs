@@ -69,7 +69,6 @@ namespace SportsStoreCore.Tests
             // Arrange - create the controller
             AdminController target = new AdminController(mock.Object);
             // Act
-            target.E
             Product p1 = GetViewModel<Product>(target.Edit(1));
             Product p2 = GetViewModel<Product>(target.Edit(2));
             Product p3 = GetViewModel<Product>(target.Edit(3));
