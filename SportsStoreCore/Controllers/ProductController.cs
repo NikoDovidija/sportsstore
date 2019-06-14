@@ -20,10 +20,6 @@ namespace SportsStoreCore.Controllers
             repo = productRepository;
         }
         public ViewResult List(string category,int productPage = 1)
-            //=> View(repo.Products
-            //.OrderBy(p => p.ProductID)
-            //.Skip((productPage - 1) * PageSize)
-            //.Take(PageSize));
             => View(new ProductsListViewModel{
                 Products = 
                 repo.Products.OrderBy(p => p.ProductID)
